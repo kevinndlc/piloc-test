@@ -1,14 +1,19 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-import App from './App.vue'
-import router from './router'
+import App from './App.vue';
+import router from './router';
+import { makeServer } from './server';
 
-import './assets/main.css'
+import './assets/main.css';
 
-const app = createApp(App)
+if (import.meta.env.MODE === 'development') {
+  makeServer({ environment: 'development' });
+}
 
-app.use(createPinia())
-app.use(router)
+const app = createApp(App);
 
-app.mount('#app')
+app.use(createPinia());
+app.use(router);
+
+app.mount('#app');
