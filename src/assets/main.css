@@ -1,0 +1,4 @@
+#app {
+  width: min(1280px, 100% - 2rem);
+  margin: auto;
+}
