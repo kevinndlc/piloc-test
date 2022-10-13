@@ -56,7 +56,7 @@ const validationSchema = toFormValidator(
       .number(required)
       .min(1, { message: 'La surface doit au moins faire 1m²' }),
     address: z.object({
-      number: z.string(required).min(1, { message: 'Veuillez saisir le numéro'})
+      number: z.union([z.number(required).min(1, { message: 'Veuillez saisir le numéro'}), z.string(required).min(1, { message: 'Veuillez saisir le numéro'})])
     }),
     tenants: z.array(
       z.object({
